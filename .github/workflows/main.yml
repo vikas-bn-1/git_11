@@ -1,0 +1,47 @@
+---
+
+name: "Simple Github Actions Workflow"
+
+on:
+  push:
+    branches:
+      - master
+      - testing
+
+
+jobs:
+  
+  build:
+    runs-on: ubuntu-latest      
+
+    steps:
+
+      - name: "Running date Command"
+        run: date
+        shell: bash
+
+      - name: "Getting OS info"
+        run: cat /etc/os-release
+        shell: bash
+
+      - name: "User info"
+        run: whoami
+        shell: bash
+
+      - name: "Current working Directory Details before Checkout"
+        run: |
+          pwd
+          ls -la
+
+      - name: "Checkout Repository"
+        uses : actions/checkout@v3
+
+      - name: "Current working Directory Details before Checkout"
+        run: |
+          pwd
+          ls -la
+
+      - name: "Running Script"
+        run: |
+          chmod +x script.sh
+          ./script.sh
