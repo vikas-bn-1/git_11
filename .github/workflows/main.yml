@@ -10,9 +10,9 @@ on:
 
 
 jobs:
-  
+
   build:
-    runs-on: ubuntu-latest      
+    runs-on: ubuntu-latest
 
     steps:
 
@@ -44,12 +44,11 @@ jobs:
       - name: "Installing Terraform"
         uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: "1.6.6"     
+          terraform_version: "1.6.6"
 
       - name: "Terraform version"
         run: terraform -v
-        bash: bash
-
+        shell: bash
 
       - name: "Running Script"
         run: |
